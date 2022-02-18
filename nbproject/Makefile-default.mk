@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Lab4_main.s
+SOURCEFILES_QUOTED_IF_SPACED=Postlab_main.s
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Lab4_main.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/Lab4_main.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Postlab_main.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/Postlab_main.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Lab4_main.o
+OBJECTFILES=${OBJECTDIR}/Postlab_main.o
 
 # Source Files
-SOURCEFILES=Lab4_main.s
+SOURCEFILES=Postlab_main.s
 
 
 
@@ -95,21 +95,21 @@ FINAL_IMAGE_NAME_MINUS_EXTENSION=${DISTDIR}/Lab4.X.${IMAGE_TYPE}
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: pic-as-assembler
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/Lab4_main.o: Lab4_main.s  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/Postlab_main.o: Postlab_main.s  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Lab4_main.o 
+	@${RM} ${OBJECTDIR}/Postlab_main.o 
 	${MP_AS} -mcpu=PIC16F887 -c \
-	-o ${OBJECTDIR}/Lab4_main.o \
-	Lab4_main.s \
+	-o ${OBJECTDIR}/Postlab_main.o \
+	Postlab_main.s \
 	 -D__DEBUG=1  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
 	
 else
-${OBJECTDIR}/Lab4_main.o: Lab4_main.s  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/Postlab_main.o: Postlab_main.s  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Lab4_main.o 
+	@${RM} ${OBJECTDIR}/Postlab_main.o 
 	${MP_AS} -mcpu=PIC16F887 -c \
-	-o ${OBJECTDIR}/Lab4_main.o \
-	Lab4_main.s \
+	-o ${OBJECTDIR}/Postlab_main.o \
+	Postlab_main.s \
 	 -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
 	
 endif

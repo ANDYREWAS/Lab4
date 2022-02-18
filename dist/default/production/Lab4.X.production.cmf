@@ -11,11 +11,11 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$build/default/production/Lab4_main.o
-mainVect CODE 0 0 0 14A 2 1
+$build/default/production/Postlab_main.o
+mainVect CODE 0 0 0 15D 2 1
 resVect CODE 0 0 0 3 2 1
-intVect CODE 0 0 0 23 2 1
-udata_bank0 BANK0 1 20 20 3 1 1
+intVect CODE 0 0 0 27 2 1
+udata_bank0 BANK0 1 20 20 5 1 1
 udata_shr COMMON 1 70 70 2 1 1
 config CONFIG 4 2007 2007 2 2 1
 # %UNUSED Section
@@ -24,22 +24,22 @@ config CONFIG 4 2007 2007 2 2 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 23-6F 1
+RAM 25-6F 1
 RAM A0-EF 1
 RAM 110-16F 1
 RAM 190-1EF 1
-BANK0 23-6F 1
+BANK0 25-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 14A-1FFF 2
-ENTRY 14A-1FFF 2
+CONST 15D-1FFF 2
+ENTRY 15D-1FFF 2
 IDLOC 2000-2003 2
-CODE 14A-1FFF 2
+CODE 15D-1FFF 2
 COMMON 72-7F 1
 EEDATA 2100-21FF 2
-STRCODE 14A-1FFF 2
-STRING 14A-1FFF 2
+STRCODE 15D-1FFF 2
+STRING 15D-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -53,106 +53,128 @@ STRING 14A-1FFF 2
 # are in ascending order of addresses.
 # All other numeric values are in decimal.
 %LINETAB
-$build/default/production/Lab4_main.o
-0 mainVect CODE >112:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-100 mainVect CODE >117:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-101 mainVect CODE >118:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-102 mainVect CODE >119:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-103 mainVect CODE >120:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-104 mainVect CODE >121:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-105 mainVect CODE >122:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-106 mainVect CODE >123:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-108 mainVect CODE >126:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-109 mainVect CODE >127:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-10A mainVect CODE >131:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-10B mainVect CODE >132:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-10C mainVect CODE >133:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-10D mainVect CODE >134:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-10E mainVect CODE >135:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-10F mainVect CODE >136:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-110 mainVect CODE >138:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-111 mainVect CODE >141:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-113 mainVect CODE >142:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-114 mainVect CODE >143:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-115 mainVect CODE >145:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-117 mainVect CODE >146:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-118 mainVect CODE >147:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-119 mainVect CODE >149:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-11A mainVect CODE >153:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-11B mainVect CODE >154:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-11C mainVect CODE >155:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-11D mainVect CODE >156:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-11E mainVect CODE >158:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-11F mainVect CODE >159:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-120 mainVect CODE >160:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-121 mainVect CODE >161:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-122 mainVect CODE >162:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-123 mainVect CODE >164:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-124 mainVect CODE >165:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-125 mainVect CODE >166:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-126 mainVect CODE >168:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-127 mainVect CODE >169:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-128 mainVect CODE >170:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-129 mainVect CODE >173:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-12A mainVect CODE >174:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-12C mainVect CODE >175:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-12D mainVect CODE >178:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-12E mainVect CODE >182:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-130 mainVect CODE >183:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-131 mainVect CODE >184:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-132 mainVect CODE >185:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-133 mainVect CODE >186:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-134 mainVect CODE >188:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-135 mainVect CODE >192:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-137 mainVect CODE >193:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-138 mainVect CODE >194:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-139 mainVect CODE >195:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-13A mainVect CODE >198:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-13B mainVect CODE >199:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-13C mainVect CODE >201:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-13D mainVect CODE >204:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-13F mainVect CODE >205:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-140 mainVect CODE >206:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-141 mainVect CODE >207:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-142 mainVect CODE >208:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-143 mainVect CODE >209:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-144 mainVect CODE >211:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-146 mainVect CODE >212:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-147 mainVect CODE >213:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-148 mainVect CODE >214:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-149 mainVect CODE >215:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-0 intVect CODE >69:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-4 intVect CODE >72:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-5 intVect CODE >73:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-6 intVect CODE >74:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-7 intVect CODE >77:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-9 intVect CODE >78:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-A intVect CODE >79:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-B intVect CODE >81:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-C intVect CODE >82:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-D intVect CODE >84:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-E intVect CODE >85:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-F intVect CODE >86:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-10 intVect CODE >87:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-11 intVect CODE >89:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-12 intVect CODE >93:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-14 intVect CODE >93:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-15 intVect CODE >93:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-16 intVect CODE >93:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-17 intVect CODE >94:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-18 intVect CODE >95:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-19 intVect CODE >98:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-1B intVect CODE >99:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-1C intVect CODE >100:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-1D intVect CODE >101:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-1E intVect CODE >102:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-1F intVect CODE >104:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-20 intVect CODE >105:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-21 intVect CODE >106:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-22 intVect CODE >109:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-0 resVect CODE >63:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-0 resVect CODE >65:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
-2 resVect CODE >66:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
+$build/default/production/Postlab_main.o
+0 mainVect CODE >119:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+100 mainVect CODE >124:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+101 mainVect CODE >125:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+102 mainVect CODE >126:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+103 mainVect CODE >127:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+104 mainVect CODE >128:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+105 mainVect CODE >129:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+106 mainVect CODE >130:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+107 mainVect CODE >131:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+109 mainVect CODE >134:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+10A mainVect CODE >135:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+10B mainVect CODE >136:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+10C mainVect CODE >137:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+10D mainVect CODE >141:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+10E mainVect CODE >142:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+10F mainVect CODE >143:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+110 mainVect CODE >144:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+111 mainVect CODE >145:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+112 mainVect CODE >146:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+113 mainVect CODE >147:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+114 mainVect CODE >149:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+115 mainVect CODE >152:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+116 mainVect CODE >153:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+117 mainVect CODE >154:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+118 mainVect CODE >155:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+119 mainVect CODE >156:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+11A mainVect CODE >159:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+11B mainVect CODE >160:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+11C mainVect CODE >161:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+11D mainVect CODE >162:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+11E mainVect CODE >163:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+11F mainVect CODE >164:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+120 mainVect CODE >169:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+122 mainVect CODE >170:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+123 mainVect CODE >171:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+124 mainVect CODE >173:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+126 mainVect CODE >174:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+127 mainVect CODE >175:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+128 mainVect CODE >177:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+129 mainVect CODE >181:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+12A mainVect CODE >182:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+12B mainVect CODE >183:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+12C mainVect CODE >184:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+12D mainVect CODE >186:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+12E mainVect CODE >187:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+12F mainVect CODE >188:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+130 mainVect CODE >189:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+131 mainVect CODE >190:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+132 mainVect CODE >192:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+133 mainVect CODE >193:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+134 mainVect CODE >194:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+135 mainVect CODE >196:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+136 mainVect CODE >197:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+137 mainVect CODE >198:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+138 mainVect CODE >201:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+139 mainVect CODE >202:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+13B mainVect CODE >203:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+13C mainVect CODE >206:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+13D mainVect CODE >207:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+13F mainVect CODE >208:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+140 mainVect CODE >209:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+141 mainVect CODE >213:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+143 mainVect CODE >214:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+144 mainVect CODE >215:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+145 mainVect CODE >216:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+146 mainVect CODE >217:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+147 mainVect CODE >219:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+148 mainVect CODE >223:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+14A mainVect CODE >224:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+14B mainVect CODE >225:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+14C mainVect CODE >226:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+14D mainVect CODE >229:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+14E mainVect CODE >230:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+14F mainVect CODE >232:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+150 mainVect CODE >235:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+152 mainVect CODE >236:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+153 mainVect CODE >237:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+154 mainVect CODE >238:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+155 mainVect CODE >239:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+156 mainVect CODE >240:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+157 mainVect CODE >242:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+159 mainVect CODE >243:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+15A mainVect CODE >244:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+15B mainVect CODE >245:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+15C mainVect CODE >246:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+0 intVect CODE >68:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+4 intVect CODE >71:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+5 intVect CODE >72:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+6 intVect CODE >73:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+7 intVect CODE >76:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+9 intVect CODE >77:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+A intVect CODE >78:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+B intVect CODE >80:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+C intVect CODE >81:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+D intVect CODE >83:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+E intVect CODE >84:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+F intVect CODE >85:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+10 intVect CODE >86:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+11 intVect CODE >88:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+12 intVect CODE >92:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+14 intVect CODE >92:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+15 intVect CODE >92:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+16 intVect CODE >92:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+17 intVect CODE >93:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+18 intVect CODE >95:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+19 intVect CODE >96:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+1A intVect CODE >97:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+1B intVect CODE >98:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+1C intVect CODE >100:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+1D intVect CODE >105:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+1F intVect CODE >106:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+20 intVect CODE >107:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+21 intVect CODE >108:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+22 intVect CODE >109:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+23 intVect CODE >111:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+24 intVect CODE >112:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+25 intVect CODE >113:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+26 intVect CODE >116:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+0 resVect CODE >62:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+0 resVect CODE >64:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
+2 resVect CODE >65:C:\Users\Josea\MPLABXProjects\Lab4.X\Postlab_main.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -165,7 +187,7 @@ F intVect CODE >86:C:\Users\Josea\MPLABXProjects\Lab4.X\Lab4_main.s
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-__Hspace_0 14A 0 ABS 0 - -
+__Hspace_0 15D 0 ABS 0 - -
 __Hspace_1 72 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
@@ -226,7 +248,7 @@ __HintVect 0 0 ABS 0 intVect -
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-udata_bank0 1 20 20 3 1
+udata_bank0 1 20 20 5 1
 udata_shr 1 70 70 2 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
