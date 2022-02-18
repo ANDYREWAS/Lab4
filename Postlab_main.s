@@ -96,9 +96,10 @@ int_t0:
     subwf   PORTC, W	    ;Revisamos si ya llegamos a los diez segundos
     btfsc   STATUS, 2	    
     clrf    PORTC	    ;Si llegamos a diez limpiamos el contador de segundos
+    
     return
     
-
+    
     
 int_iocb:
     BANKSEL PORTA
@@ -126,10 +127,13 @@ main:
     call config_tmr0
     call config_int_enable
     call cont1s
+    clrf PORTD
     banksel PORTA
     
 loop:
     call cont1s
+    call cont_decs
+    call clr_contdecs
     goto loop
 
 cont1s:
@@ -139,9 +143,27 @@ cont1s:
     btfss   STATUS, 2
     return
     incf    PORTC
+    incf    contd   ;cada segundo que cuente, tambien lo guardamos en esta variable para poder saber cuando llegue a diez
     clrf    cont
 
 return
+    
+clr_contdecs:
+    movlw   6
+    subwf   PORTD, W  ;Cuando el portd llegue a 6 significa que han pasado 6 ciclos del tmr de segundos, que se reinicia cada 10 segundos, es decir que han pasado 60 segundos y se reinicia
+    btfss   STATUS, 2 ;encendió la bandera Z?
+    return
+    clrf    PORTD
+    
+cont_decs:
+    movlw   10
+    subwf   contd, W
+    btfss   STATUS, 2
+    return
+    incf    PORTD
+    clrf    contd
+    
+    
     
 config_iocb:
     banksel TRISA
@@ -180,7 +202,10 @@ config_io:
    BANKSEL TRISC
    CLRF    TRISC	    ; PORTC como salida
    
-    
+  ;tmr decs
+   clrf    PORTD
+   BANKSEL TRISD
+   CLRF    TRISD	    ; PORTD como salida
    return
 
 
