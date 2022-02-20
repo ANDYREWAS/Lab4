@@ -36,6 +36,7 @@ CONFIG BOR4V=BOR40V   // Brown-out Reset Selection bit (Brown-out Reset set to 4
 // #pragma config statements should precede project file includes.
 // Use project enums instead of #define for ON and OFF.
 
+    
 	
 UP	EQU	0 ;bit 0
 DOWN	EQU	7 ;bit 7
@@ -48,9 +49,11 @@ RESET_TMR0 MACRO TMR_VAR
    ENDM
 	
 PSECT	udata_bank0 ;memoria común
-	cont:		DS 2
+	cont:		DS 1
 	valor:		DS 1
-	contd:		DS 2
+	contd:		DS 1
+	sec:		DS 1	    ;variable para contador de segundos
+	decenas:	DS 1	    ;variable para contador de decenas
 	
     	
 PSECT	udata_shr   ;memoria común
@@ -65,6 +68,7 @@ resetVec:
     goto    main
     
 PSECT	intVect,    class =CODE, abs, delta=2  ;Vector de interrupción
+
 ORG 04h
     
 push:
@@ -93,9 +97,9 @@ int_t0:
     INCF    cont
     
     movlw   10		    
-    subwf   PORTC, W	    ;Revisamos si ya llegamos a los diez segundos
+    subwf   sec, W	    ;Revisamos si ya llegamos a los diez segundos
     btfsc   STATUS, 2	    
-    clrf    PORTC	    ;Si llegamos a diez limpiamos el contador de segundos
+    clrf    sec	    ;Si llegamos a diez limpiamos el contador de segundos
     
     return
     
@@ -117,6 +121,9 @@ int_iocb:
     
 PSECT	mainVect,    class =CODE, abs, delta=2  ;Vector de interrupción
 ORG 100h
+
+
+    
     
 ;_______CONFIGURACIONES_________
     
@@ -142,28 +149,43 @@ cont1s:
     subwf   cont, W
     btfss   STATUS, 2
     return
-    incf    PORTC
+    incf    sec
+    call    SET_DISPLAY
     incf    contd   ;cada segundo que cuente, tambien lo guardamos en esta variable para poder saber cuando llegue a diez
     clrf    cont
 
 return
     
 clr_contdecs:
+    call    SET_DISPLAY2
     movlw   6
-    subwf   PORTD, W  ;Cuando el portd llegue a 6 significa que han pasado 6 ciclos del tmr de segundos, que se reinicia cada 10 segundos, es decir que han pasado 60 segundos y se reinicia
+    subwf   decenas, W  ;Cuando el portd llegue a 6 significa que han pasado 6 ciclos del tmr de segundos, que se reinicia cada 10 segundos, es decir que han pasado 60 segundos y se reinicia
     btfss   STATUS, 2 ;encendió la bandera Z?
     return
-    clrf    PORTD
+    clrf    decenas
+    return
     
 cont_decs:
     movlw   10
     subwf   contd, W
     btfss   STATUS, 2
     return
-    incf    PORTD
+    incf    decenas
     clrf    contd
     
+    return
+
+SET_DISPLAY:
+    movf    sec, w
+   ; Call    tabla	;usamos el dato de la var para llamar su representación en la tabla
+    movwf   PORTC	;movemos la representación en hex de w a la var display
+    return
     
+ SET_DISPLAY2:
+    movf    decenas, w
+    ;Call    tabla	;usamos el dato de la var para llamar su representación en la tabla
+    movwf   PORTD	;movemos la representación en hex de w a la var display
+    return
     
 config_iocb:
     banksel TRISA
@@ -247,4 +269,30 @@ config_tmr0:
 
 
 
+    
+ORG 200h    
+tabla:
+    clrf    PCLATH
+    bsf     PCLATH,0
+    andlw   0x0f
+    addwf   PCL	    ;
+    retlw   00111111B	;0
+    retlw   00000110B	;1
+    retlw   01011011B	;2
+    retlw   01001111B	;3
+    retlw   01100110B	;4
+    retlw   01101101B	;5
+    retlw   01111101B	;6
+    retlw   00000111B	;7
+    retlw   01111111B	;8
+    retlw   01101111B	;9
+    retlw   01110111B	;A
+    retlw   01111100B	;B
+    retlw   00111001B	;C
+    retlW   01011110B	;d
+    retlw   01111001B	;E
+    retlw   01110001B	;F    
 
+    
+
+    
