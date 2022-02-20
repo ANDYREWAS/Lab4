@@ -2626,13 +2626,13 @@ cont_decs:
 
 SET_DISPLAY:
     movf sec, w
-    Call tabla ;usamos el dato de la var para llamar su representación en la tabla
+   ; Call tabla ;usamos el dato de la var para llamar su representación en la tabla
     movwf PORTC ;movemos la representación en hex de w a la var display
     return
 
  SET_DISPLAY2:
     movf decenas, w
-    Call tabla ;usamos el dato de la var para llamar su representación en la tabla
+    ;Call tabla ;usamos el dato de la var para llamar su representación en la tabla
     movwf PORTD ;movemos la representación en hex de w a la var display
     return
 

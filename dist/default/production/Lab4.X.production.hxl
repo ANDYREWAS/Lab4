@@ -10,13 +10,13 @@
  Intel Hex-file ranges:
   0h - 5h		(dist/default/production\Lab4.X.production.hex)
   8h - 4Dh		(dist/default/production\Lab4.X.production.hex)
-  200h - 2D1h		(dist/default/production\Lab4.X.production.hex)
+  200h - 2CDh		(dist/default/production\Lab4.X.production.hex)
   400h - 427h		(dist/default/production\Lab4.X.production.hex)
   400Eh - 4011h		(dist/default/production\Lab4.X.production.hex)
  Unused ranges:
   6h - 7h
   4Eh - 1FFh
-  2D2h - 3FFh
+  2CEh - 3FFh
   428h - 400Dh
 
 ### Hex Memory Map ###
@@ -44,8 +44,7 @@
 00000290 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000002A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000002B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-000002C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-000002D0 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
+000002C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- --
 ----------------------------------------------------------
 00000400 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000410 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
