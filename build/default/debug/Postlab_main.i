@@ -2498,11 +2498,12 @@ RESET_TMR0 MACRO TMR_VAR
    ENDM
 
 PSECT udata_bank0 ;memoria común
- cont: DS 1
+ cont: DS 2
  valor: DS 1
- contd: DS 1
- sec: DS 1 ;variable para contador de segundos
- decenas: DS 1 ;variable para contador de decenas
+ contd: DS 2
+ display: DS 2
+ segsbinario: DS 2
+ decenas: DS 2
 
 
 PSECT udata_shr ;memoria común
@@ -2517,7 +2518,6 @@ resetVec:
     goto main
 
 PSECT intVect, class =CODE, abs, delta=2 ;Vector de interrupción
-
 ORG 04h
 
 push:
@@ -2546,9 +2546,9 @@ int_t0:
     INCF cont
 
     movlw 10
-    subwf sec, W ;Revisamos si ya llegamos a los diez segundos
+    subwf segsbinario, W ;Revisamos si ya llegamos a los diez segundos
     btfsc STATUS, 2
-    clrf sec ;Si llegamos a diez limpiamos el contador de segundos
+    clrf segsbinario ;Si llegamos a diez limpiamos el contador de segundos
 
     return
 
@@ -2598,43 +2598,28 @@ cont1s:
     subwf cont, W
     btfss STATUS, 2
     return
-    incf sec
-    call SET_DISPLAY
+    incf segsbinario
     incf contd ;cada segundo que cuente, tambien lo guardamos en esta variable para poder saber cuando llegue a diez
     clrf cont
 
 return
 
 clr_contdecs:
-    call SET_DISPLAY2
     movlw 6
-    subwf decenas, W ;Cuando el portd llegue a 6 significa que han pasado 6 ciclos del tmr de segundos, que se reinicia cada 10 segundos, es decir que han pasado 60 segundos y se reinicia
+    subwf PORTD, W ;Cuando el portd llegue a 6 significa que han pasado 6 ciclos del tmr de segundos, que se reinicia cada 10 segundos, es decir que han pasado 60 segundos y se reinicia
     btfss STATUS, 2 ;encendió la bandera Z?
     return
-    clrf decenas
-    return
+    clrf PORTD
 
 cont_decs:
     movlw 10
     subwf contd, W
     btfss STATUS, 2
     return
-    incf decenas
+    incf PORTD
     clrf contd
 
-    return
 
-SET_DISPLAY:
-    movf sec, w
-    Call tabla ;usamos el dato de la var para llamar su representación en la tabla
-    movwf PORTC ;movemos la representación en hex de w a la var display
-    return
-
- SET_DISPLAY2:
-    movf decenas, w
-    Call tabla ;usamos el dato de la var para llamar su representación en la tabla
-    movwf PORTD ;movemos la representación en hex de w a la var display
-    return
 
 config_iocb:
     banksel TRISA
@@ -2717,6 +2702,21 @@ config_tmr0:
     RETURN
 
 
+
+SET_DISPLAY:
+    movf segsbinario, w
+    Call tabla ;usamos el dato del nibble para llamar su representación en la tabla
+    movwf display ;movemos la representación en hex de w a la var display
+
+mostrar_valor:
+    clrf PORTC
+    goto DISPLAY_0 ;nos vamos a la subrutina de config del display
+    ;goto DISPLAY_0 ;no es realmente necesario si no hay nada entre la linea anterior y la subrut diplay0
+
+ DISPLAY_0:
+    movf display, w
+    movwf PORTC
+    return
 
 
 ORG 200h
